@@ -1,0 +1,17 @@
+POST http://ec2-34-222-238-25.us-west-2.compute.amazonaws.com:4242/create-checkout-session
+Content-Type: application/json
+
+{
+    "products": [
+        {
+            "name": "T-shirt",
+            "unitAmount": 2000,
+            "quantity": 1
+        },
+        {
+            "name": "T-shirt",
+            "unitAmount": 3000,
+            "quantity": 1
+        }
+    ]
+}
