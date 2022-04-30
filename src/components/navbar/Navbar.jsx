@@ -73,9 +73,12 @@ const Navbar = () => {
     if (account) {
       logout()
       window.$("#exampleModalmerchf").modal('hide');
+      localStorage.setItem("flag", false);
     } else {
       login("injected")
       window.$("#exampleModalmerchf").modal('hide');
+      localStorage.setItem('connectorId', "injected")
+      localStorage.setItem("flag", true);
     }
   }
   const minto = async () => {
@@ -118,8 +121,7 @@ const Navbar = () => {
         setDownloadable(false)
       }
     } else {
-      login("injected")
-
+      console.log("check your connection");
     }
   }
 
