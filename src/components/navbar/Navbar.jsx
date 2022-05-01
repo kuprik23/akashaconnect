@@ -194,9 +194,9 @@ const Navbar = () => {
           <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">{account ? "Disconnect Wallet" : "Connect Wallet"}</button>
           {
             downloadable ?
-              <button type="button" className={'bg-info'} onClick={downloadSDK}>Download</button>
+              <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
               :
-              <button type="button" className={'bg-info'} >No Download  Availab</button>
+              <button type="button" className={'bg-info'} >No Download  Available</button>
           }
         </div>
         <div className="gpt3__navbar-menu">
