@@ -1,6 +1,6 @@
 let Environment = {
 
-  mintContract: "0x4ae57798AEF4aF99eD03818f83d2d8AcA89952c7"
+  mintContract: "0xFBB6684EbD6093989740e8ef3e7D57cf3813E5a4"
   // "0x513Cfd729DeEadd4BBfB8Cb5014e6C63d67a787a",
 
   // ethContract: "0x495f947276749Ce646f68AC8c248420045cb7b5e",

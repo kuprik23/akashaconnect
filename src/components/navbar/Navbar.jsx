@@ -123,7 +123,12 @@ const Navbar = () => {
       if (account) {
         const contractAddress = environment.mintContract;
         const contract = SkeletonContract(contractAddress, web3);
+
         let balance = await contract.methods.balanceOf(account).call();
+
+        // let balance = await contract.methods.balanceOf(
+        //   "0x4E4fAb3De995F55ADf2e2c99C2b44070aeebd6BC"
+        // ).call();
         console.log('balance====>', balance)
         if (balance > 0) {
           setDownloadable(true)
