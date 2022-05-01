@@ -149,6 +149,7 @@ const Navbar = () => {
     // console.log("$$$")
     try {
       toast.warning("downloading SDK");
+      window.location.href = "https://drive.google.com/file/d/17l7di-fx1ERvu6XHM24Z1a6nu6fwZNIO/view"
     } catch (error) {
       console.log('balance====>', error)
     }
@@ -201,7 +202,7 @@ const Navbar = () => {
             downloadable ?
               <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
               :
-              <button type="button" className={'bg-info'} >No Download  Available</button>
+              <button type="button" className={'bg-info'}  >No Download  Available</button>
           }
         </div>
         <div className="gpt3__navbar-menu">
