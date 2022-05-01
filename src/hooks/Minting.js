@@ -17,7 +17,7 @@ const Minting = () => {
     privKey,
     "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
   );
-  const contractAddress = environment.musabContract;
+  const contractAddress = environment.mintContract;
   const web31 = new Web3(provider);
 
   const contract = SkeletonContract(contractAddress, web3);
@@ -28,7 +28,7 @@ const Minting = () => {
         console.log('minting values=========>', mintVal)
         const deadline = parseInt(Date.now() / 1000 + 400);
         const soliditySha3Expected = soliditySha3(
-          environment.musabContract,
+          environment.mintContract,
           account,
           deadline,
           mintVal
@@ -63,7 +63,7 @@ const Minting = () => {
         return details;
 
       } catch (error) {
-        console.log('errrrrororor',error)
+        console.log('errrrrororor', error)
         throw (error)
         // toast.error("Sale must be active to mint nft");
         if (error.toString().slice(0, 5) === "Error") {

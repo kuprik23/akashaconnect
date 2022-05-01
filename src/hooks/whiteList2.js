@@ -6,7 +6,7 @@ import { SkeletonContract } from "../utils/contractHelpers";
 
 export const CheckWhiteTwo = () => {
   const web3 = useWeb3();
-  const tokenAddress = environment.musabContract;
+  const tokenAddress = environment.mintContract;
   const contract = SkeletonContract(tokenAddress, web3);
   const WhiteTwo = useCallback(
     async () => {

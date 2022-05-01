@@ -12,14 +12,17 @@ import Loader from "../../hooks/loader";
 import "react-toastify/dist/ReactToastify.css";
 import useWeb3 from '../../hooks/useWeb3';
 import environment from '../../utils/Environment';
+import { SkeletonContract } from '../../utils/contractHelpers';
+
+import Web3 from 'web3'
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { login, logout } = useAuth();
   const { account, chainId } = useWeb3React();
   const [shownav, setShowNav] = useState(false)
-  const [downloadable, setDownloadable] = useState(false)
-  console.log('ddddddddddddddddddddddd====', account)
+  const [downloadable, setDownloadable] = useState()
+  // console.log('ddddddddddddddddddddddd====', account)
   const [open, Close] = useState(true);
   const [mainLoader, setMainLoader] = useState(false);
   const { userMinting } = Minting();
@@ -48,7 +51,7 @@ const Navbar = () => {
     localStorage.setItem('connectorId', '');
   };
   const handleResize = () => {
-    console.log("window.innerWidth", window?.innerWidth)
+    // console.log("window.innerWidth", window?.innerWidth)
     if (window.innerWidth < 768) {
       setShowNav(false)
     } else {
@@ -62,42 +65,47 @@ const Navbar = () => {
     localStorage.setItem('connectorId', 'walletconnect');
     if (account) {
       logout();
-      window.$("#exampleModalmerchf").modal('hide');
+      window.$("#exampleModalmerchf").modal("hide");
     } else {
       login('walletconnect');
-      window.$("#exampleModalmerchf").modal('hide');
+      window.$("#exampleModalmerchf").modal("hide");
     }
   };
   const connectMetaMask = () => {
-    console.log("$$$")
-    if (account) {
-      logout()
-      window.$("#exampleModalmerchf").modal('hide');
-      localStorage.setItem("flag", false);
-    } else {
-      login("injected")
-      window.$("#exampleModalmerchf").modal('hide');
-      localStorage.setItem('connectorId', "injected")
-      localStorage.setItem("flag", true);
+    try {
+      if (account) {
+        logout()
+        // window.$("#exampleModalmerchf").modal("hide");
+        localStorage.setItem("flag", false);
+        checkBalance();
+      } else {
+        login("injected")
+        // window.$("#exampleModalmerchf").modal("hide");
+        localStorage.setItem('connectorId', "injected")
+        localStorage.setItem("flag", true);
+      }
+    } catch (e) {
+      console.log("$$$", e)
     }
   }
   const minto = async () => {
     if (account) {
       setMainLoader(true);
       try {
-        const res = await userMinting(1);
+        // const res = await userMinting(1);
+        // setMainLoader(false);
+        // if (res?.code === 4001) {
+        //   await setMainLoader(false);
+        //   await toast.error("User denied transaction.");
+        // } else if (res?.code === 4002) {
+        //   await setMainLoader(false);
+        //   await toast.error("Transaction failed.");
+        // } else {
+        //   toast.success("Minting Successful");
+        // }
+        // console.log('res=======', res)
+        toast.info("Get WhiteListed and mint");
         setMainLoader(false);
-        if (res?.code === 4001) {
-          await setMainLoader(false);
-          await toast.error("User denied transaction.");
-        } else if (res?.code === 4002) {
-          await setMainLoader(false);
-          await toast.error("Transaction failed.");
-        } else {
-          toast.success("Minting Successful");
-        }
-        console.log('res=======', res)
-
       } catch (error) {
         setMainLoader(false);
         toast.error(error.message);
@@ -110,29 +118,44 @@ const Navbar = () => {
   }
 
   const checkBalance = async () => {
-    console.log("$$$")
-    if (account) {
-      const contractAddress = environment.musabContract;
-      const contract = SkeletonContract(contractAddress, web3);
-      let balance = await contract.methods.balanceOf().call();
-      if (balance > 0) {
-        setDownloadable(true)
+    // console.log("$$$")
+    try {
+      if (account) {
+        const contractAddress = environment.mintContract;
+        const contract = SkeletonContract(contractAddress, web3);
+        let balance = await contract.methods.balanceOf(account).call();
+        console.log('balance====>', balance)
+        if (balance > 0) {
+          setDownloadable(true)
+        } else {
+          setDownloadable(false)
+        }
       } else {
-        setDownloadable(false)
+        console.log("balance check your connection");
+        // setDownloadable(false)
       }
-    } else {
-      console.log("check your connection");
+    } catch (error) {
+
+      console.log('balance====>', error)
     }
   }
 
+  const downloadSDK = async () => {
+    // console.log("$$$")
+    try {
+      toast.warning("downloading SDK");
+    } catch (error) {
+      console.log('balance====>', error)
+    }
+  }
   useEffect(() => {
     // login("injected");
     checkBalance();
-    console.log("chainId", chainId);
+    // console.log("chainId", chainId);
     if (chainId != "1") {
       // toast.error("Select Ethereum Network");
     }
-  }, [account])
+  }, [account, downloadable])
   return (
     <>
       {mainLoader && <Loader />}
@@ -171,9 +194,9 @@ const Navbar = () => {
           <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">{account ? "Disconnect Wallet" : "Connect Wallet"}</button>
           {
             downloadable ?
-              <button type="button" className={'bg-info'} >Download</button>
+              <button type="button" className={'bg-info'} onClick={downloadSDK}>Download</button>
               :
-              ""
+              <button type="button" className={'bg-info'} >No Download  Availab</button>
           }
         </div>
         <div className="gpt3__navbar-menu">
@@ -200,7 +223,7 @@ const Navbar = () => {
                   <a href="#wgpt3">What is Akasha</a>
                 </p>
                 <p>
-                  <button id="bt" onClick={minto}>Mint</button>
+                  <button id="bt" onClick={minto}>Minty</button>
                 </p>
                 <p>
                   <a href="#features">White Paper</a>
@@ -210,7 +233,9 @@ const Navbar = () => {
                 </p>
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
-                <button type="button" data-toggle="modal" className={account && 'bg-success'} data-target="#exampleModalmerchf">{account ? "Disconnect Wallet" : "Connect Wallet"}</button>
+                <button type="button" data-toggle="modal" className={account && 'bg-success'} data-target="#exampleModalmerchf">
+                  {account ? "Disconnect Wallet" : "Connect Wallet"}
+                </button>
               </div>
             </div>
           )}

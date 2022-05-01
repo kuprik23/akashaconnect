@@ -7,7 +7,7 @@ import { SkeletonContract } from "../utils/contractHelpers";
 export const GetMint = () => {
   const { account } = useWeb3React();
   const web3 = useWeb3();
-  const contractAddress = environment.musabContract;
+  const contractAddress = environment.mintContract;
 
   const contract = SkeletonContract(contractAddress, web3);
   const getStatusMint = useCallback(async () => {

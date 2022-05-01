@@ -8,18 +8,18 @@ import Web3 from "web3";
 const Minting = () => {
   const { account } = useWeb3React();
   const web3 = useWeb3();
-  const contractAddress = environment.musabContract;
+  const contractAddress = environment.mintContract;
 
   const contract = SkeletonContract(contractAddress, web3);
   const userMinting = useCallback(
     async (mintVal, presale) => {
       let fees = await contract.methods.pricePresale().call();
-      if(presale){
-        fees = await contract.methods.pricePresale().call(); 
+      if (presale) {
+        fees = await contract.methods.pricePresale().call();
       } else {
         fees = await contract.methods.pricePublicSale().call();
       }
-      let fees0 = parseInt(fees)/1000000000000000000;
+      let fees0 = parseInt(fees) / 1000000000000000000;
       const MINT_NFT_FEE = mintVal * fees0;
       const details = await contract.methods
         .mintPresale(mintVal)

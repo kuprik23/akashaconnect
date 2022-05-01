@@ -7,16 +7,16 @@ import { SkeletonContract } from "../utils/contractHelpers";
 export const CheckMints2 = () => {
     const { account } = useWeb3React();
     const web3 = useWeb3();
-    const tokenAddress = environment.musabContract;
+    const tokenAddress = environment.mintContract;
     const contract = SkeletonContract(tokenAddress, web3);
-    console.log('ffffffffffffffffffff',account)
+    console.log('ffffffffffffffffffff', account)
     const Mints2 = useCallback(
         async () => {
             try {
-                if(account){
-                const details = await contract.methods.TotalSupply().call();;
-               return details
-                console.log('totalsupply========>',details); ;
+                if (account) {
+                    const details = await contract.methods.TotalSupply().call();;
+                    return details
+                    console.log('totalsupply========>', details);;
                 }
             } catch (error) {
                 console.log('errrrorororororo', error)
