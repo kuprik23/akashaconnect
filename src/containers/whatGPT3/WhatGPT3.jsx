@@ -12,9 +12,9 @@ const WhatGPT3 = () => (
       <a target="_blank" rel="noreferrer" href="https://forms.gle/RmPfXnLzgbuYAqPY6"> <button id="bt" >Get on the WHITE LIST</button> </a>
     </div>
     <div className="gpt3__whatgpt3-container">
-      <Feature title="Connection" text="Virtual Reality is the future of connection, the distance will vanish. Connect and share with others in a new way." />
-      <Feature title="Adventure" text="Every moment is right at your eyes. attend international concerts visit the other half of the world see it touch it feel it and much more all from your bedroom." />
-      <Feature title="Education" text="We integrate virtual reality with knowledge to bring the best and most effective educational experience hands on learning experience and live experiments. the best integration ever." />
+      <Feature title="Connection" text="Virtual Reality is the future of connection, the distance will vanish. Connect and share with others in ways you never dreamt off." />
+      <Feature title="Adventure" text="Every moment is right at your eyes. Attend international virtual concerts, visit the other half of the world, see it, touch it feel it and much more all from your home." />
+      <Feature title="Education" text="We integrate virtual reality with knowledge to bring the best and most effective hands on learning experience. Give your experiments the best integration ever." />
     </div>
   </div>
 );
