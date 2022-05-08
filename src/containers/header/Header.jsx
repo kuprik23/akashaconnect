@@ -8,7 +8,7 @@ import './header.css';
 const Header = () => (
   <div className="gpt3__header section__padding" id="home">
     <div className="gpt3__header-content">
-      <h1 className="gradient__text">Akasha Multiverse</h1>
+      <h1 className="gradient__text">Akashaverse</h1>
       <div className="wrapper">
         <div className="video-main">
           <div className="promo-video">
@@ -38,8 +38,7 @@ const Header = () => (
         </div>
       </div>
       <p>
-        Connections are evolving and so should we. <br /> Akasha Metaverse is a
-        virtual heaven where the possibilities are limitless.
+        Connections are evolving and so should we. <br /> Virtual heaven with limitless possibilities.
       </p>
       <div className="gpt3__header-content__input">
       <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
