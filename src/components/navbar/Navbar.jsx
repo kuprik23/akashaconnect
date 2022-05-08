@@ -154,6 +154,17 @@ const Navbar = () => {
       console.log('balance====>', error)
     }
   }
+
+
+  const toDownloadSDK = async () => {
+    // console.log("$$$")
+    try {
+      toast.warning("Get Whitellisted and Mint NFTs");
+    } catch (error) {
+      console.log('balance====>', error)
+    }
+  }
+
   useEffect(() => {
     // login("injected");
     checkBalance();
@@ -180,6 +191,9 @@ const Navbar = () => {
               <a href="#wgpt3">What is Akasha?</a>
             </p>
             <p>
+              <a href="#">Join Discord</a>
+            </p>
+            <p>
               <button id="bt" className='bg-transparent border-0' onClick={minto}>Minty</button>
             </p>
             <p>
@@ -202,7 +216,7 @@ const Navbar = () => {
             downloadable ?
               <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
               :
-              <button type="button" className={'bg-info'}  >No Download  Available</button>
+              <button type="button" className={'bg-info'} onClick={toDownloadSDK} >No Download  Available</button>
           }
         </div>
         <div className="gpt3__navbar-menu">
@@ -236,6 +250,9 @@ const Navbar = () => {
                 </p>
                 <p>
                   <a href="#blog">Company</a>
+                </p>
+                <p>
+                  <a href="#">Join Discord</a>
                 </p>
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
