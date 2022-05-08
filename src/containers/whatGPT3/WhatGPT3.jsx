@@ -5,7 +5,7 @@ import './whatGPT3.css';
 const WhatGPT3 = () => (
   <div className="gpt3__whatgpt3 section__margin" id="wgpt3">
     <div className="gpt3__whatgpt3-feature">
-      <Feature title="What is Akasha" text="Akasha Metaverse is the largest virtual reality social connection in 21 century. The focus is on communication, adventure and education. Built on Unreal Engine and Blockchain with our governance token $ROLAIS, we're aiming to deliver the best most secure social space for you. Join us now." />
+      <Feature title="What is Akasha" text="Akashaverse is the pioneering  21st century digital connections. The focus is on communication, adventure and education. Built on Unreal Engine and Blockchain with our governance token $ROLAIS, we're aiming to deliver the best most secure social space for you. Join us now." />
     </div>
     <div className="gpt3__whatgpt3-heading">
       <h1 className="gradient__text">Virtual Heaven</h1>
