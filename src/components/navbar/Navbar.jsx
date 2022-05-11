@@ -159,7 +159,7 @@ const Navbar = () => {
   const toDownloadSDK = async () => {
     // console.log("$$$")
     try {
-      toast.warning("Get Whitellisted and Mint NFTs");
+      toast.warning("Get Whitelisted and Mint NFTs");
     } catch (error) {
       console.log('balance====>', error)
     }
