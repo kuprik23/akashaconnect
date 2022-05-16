@@ -252,7 +252,6 @@ const Navbar = () => {
                   <a href="#blog">Company</a>
                 </p>
                 <p>
-                  <a href="#">Join Discord</a>
                   <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
                 </p>
               </div>
