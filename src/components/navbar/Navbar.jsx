@@ -104,7 +104,7 @@ const Navbar = () => {
         //   toast.success("Minting Successful");
         // }
         // console.log('res=======', res)
-        toast.info("Get WhiteListed and mint");
+        toast.info("FIND THE PRESALE FORM AND JOIN DISCORD AND TWITTER FOR ANNOUNCEMENTS WHEN MINT");
         setMainLoader(false);
       } catch (error) {
         setMainLoader(false);
