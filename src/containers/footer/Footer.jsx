@@ -10,7 +10,7 @@ const Footer = () => (
 
 <p>
     <div className="gpt3__footer-btn">
-    <a target="_blank" rel="noreferrer" href="https://forms.gle/RmPfXnLzgbuYAqPY6"> <button id="bt" >Get on the WHITE LIST</button> </a>
+    <a target="_blank" rel="noreferrer" href="https://forms.gle/RmPfXnLzgbuYAqPY6"> <button id="bt" >Presale form</button> </a>
     </div>
     </p>
 
