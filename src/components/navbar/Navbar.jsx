@@ -159,7 +159,7 @@ const Navbar = () => {
   const toDownloadSDK = async () => {
     // console.log("$$$")
     try {
-      toast.warning("Get Whitelisted and Mint NFTs");
+      toast.warning("Join discord, twitter for announcements. There is a pink list for the presale and the smart contract will be deployed soon.");
     } catch (error) {
       console.log('balance====>', error)
     }
