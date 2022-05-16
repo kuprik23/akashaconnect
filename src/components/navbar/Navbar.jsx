@@ -148,7 +148,7 @@ const Navbar = () => {
   const downloadSDK = async () => {
     // console.log("$$$")
     try {
-      toast.warning("downloading SDK");
+      toast.warning("Connecting....");
       window.location.href = "https://drive.google.com/file/d/17l7di-fx1ERvu6XHM24Z1a6nu6fwZNIO/view"
     } catch (error) {
       console.log('balance====>', error)
@@ -192,6 +192,7 @@ const Navbar = () => {
             </p>
             <p>
               <a href="#">Join Discord</a>
+              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
             </p>
             <p>
               <button id="bt" className='bg-transparent border-0' onClick={minto}>Minty</button>
@@ -253,6 +254,7 @@ const Navbar = () => {
                 </p>
                 <p>
                   <a href="#">Join Discord</a>
+                  <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
                 </p>
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
