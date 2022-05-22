@@ -19,7 +19,7 @@ const Footer = () => (
         {/* <img src={gpt3Logo} alt="gpt3_logo" /> */}
         <p><br />Web 3.0 is here.
  To access the Metaverse, connect your Metamask with Akasha NFT.
- To obtain your tokens, go to MINTY and connect in Discord.</p>
+ Obtain your token in MINTY</p>
       </div>
       <p>
               <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
