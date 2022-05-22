@@ -200,7 +200,6 @@ const Navbar = () => {
               <a
                 href="https://www.keepandshare.com/doc6/38222/akasha-original-white-paper-1-pdf-129k?da=y"
                 target="_blank" rel="noreferrer"
-                rel="noopener noreferrer"
               >
                 White Paper
               </a>
