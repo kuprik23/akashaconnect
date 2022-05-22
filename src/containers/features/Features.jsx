@@ -16,8 +16,8 @@ const featuresData = [
     text: 'Buy and sell digital items, enjoy the experience while making money on the go.',
   },
   {
-    title: 'Own.',
-    text: 'Own your virtual world  your digital items with the ultra privacy blockchain offers.',
+    title: 'Display',
+    text: 'Customise the showcase of your digital items with the ultra privacy blockchain offers.',
   },
 ];
 
