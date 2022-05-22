@@ -11,7 +11,7 @@ const WhatGPT3 = () => (
       <h1 className="gradient__text">Virtual Heaven</h1>
     </div>
     <div className="gpt3__whatgpt3-container">
-      <Feature title="Connection" text="Extended reality is the future of connection, the distance will vanish. Connect and share with others in ways you never dreamt off." />
+      <Feature title="Connection" text="Extended reality is the future of connection, the distance will vanish. Connect and share with others in ways you never dreamt of." />
       <Feature title="Adventure" text="Every moment reaches your eyes. Attend international virtual concerts, visit the other half of the world, see it, touch and feel from your home." />
       <Feature title="Education" text="Web 3.0 integrating virtual reality brings the best and most effective hands on learning experience." />
     </div>
