@@ -56,7 +56,9 @@ const Team = () => (
               <h2>Who Are We?</h2>
               <p>
                 <div>
-                We, the Akasha Metaverse Team, marry deep VR industry experience with passion for virtual social and its users. We aim to combine the best of the virtual world with professional-quality content. Our goal is to build highly-engaging experiences in the metaverse.
+                We, the Akasha Metaverse Team, marry deep VR industry experience with passion for virtual social and its users.
+ We aim to combine the best of the virtual world with professional-quality content.
+ Our goal is to build highly-engaging experiences in the metaverse.
                 </div>
               </p>
             </div>
