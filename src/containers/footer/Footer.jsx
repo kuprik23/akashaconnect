@@ -19,6 +19,9 @@ const Footer = () => (
         {/* <img src={gpt3Logo} alt="gpt3_logo" /> */}
         <p><br />WEB 3.0 is here. To access the metaverse connect your metamask with Akasha NFT at the top of the website. To obtain your tokens go to MINTY and connect in the Discord.</p>
       </div>
+      <p>
+              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
+            </p>
       <div className="gpt3__footer-links_div">
       </div>
       <div className="gpt3__footer-links_div">
