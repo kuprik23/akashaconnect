@@ -5,12 +5,12 @@ import './footer.css';
 const Footer = () => (
   <div className="gpt3__footer section__padding">
     <div className="gpt3__footer-heading">
-      <h1 className="gradient__text">Step into the Future</h1>
+      <h1 className="gradient__text">STEP INTO THE FUTURE</h1>
     </div>
 
 <p>
     <div className="gpt3__footer-btn">
-    <a target="_blank" rel="noreferrer" href="https://forms.gle/RmPfXnLzgbuYAqPY6"> <button id="bt" >Presale form</button> </a>
+    <a target="_blank" rel="noreferrer" href="https://forms.microsoft.com/r/FsznR0EeqA"> <button id="bt" >AKASHA METAVERSE XPO 2022 OPEN CALL</button> </a>
     </div>
     </p>
 
