@@ -28,6 +28,7 @@ const Navbar = () => {
   const { userMinting } = Minting();
   const web3 = useWeb3();
 
+
   const connectMetamask = () => {
     localStorage.setItem('connectorId', 'injected');
     if (account) {
@@ -63,6 +64,16 @@ const Navbar = () => {
   useEffect(() => {
     handleResize();
   }, [])
+
+  useEffect(() => {
+    // login("injected");
+    checkBalance();
+    // console.log("chainId", chainId);
+    if (chainId != "1") {
+      // toast.error("Select Ethereum Network");
+    }
+  }, [account, downloadable])
+
 
   const walletconnect = () => {
     localStorage.setItem('connectorId', 'walletconnect');
@@ -168,14 +179,6 @@ const Navbar = () => {
     }
   }
 
-  useEffect(() => {
-    // login("injected");
-    checkBalance();
-    // console.log("chainId", chainId);
-    if (chainId != "1") {
-      // toast.error("Select Ethereum Network");
-    }
-  }, [account, downloadable])
   return (
     <>
       {mainLoader && <Loader />}
