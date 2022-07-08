@@ -58,10 +58,13 @@ const Navbar = () => {
       setShowNav(true)
     }
   }
+
+
   useEffect(() => {
     handleResize();
   }, [])
-  const wallletconnect = () => {
+
+  const walletconnect = () => {
     localStorage.setItem('connectorId', 'walletconnect');
     if (account) {
       logout();
@@ -272,24 +275,35 @@ const Navbar = () => {
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><img src="assets/errorSign.svg" alt="" /></button>
               </div>
               <div class="modal-body p-5 text-center">
-                <button className='w-100 ' type='button' onClick={connectMetaMask}>
+                <button className='w-100 ' type='button' >
                   <div className="row pb-2 pt-1">
                     {account ?
-                      <div className='outerdivs-meta' >
+                      <div className='outerdivs-meta' onClick={connectMetaMask} >
                         <div className="col-12 text-end">
                           <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
                         </div>
                         <div className="col-12 my-auto p-0 text-start">
-                          <p>Disconnect Metamask</p>
+                          <p>Disconnect Wallet</p>
                         </div>
                       </div>
                       :
-                      <div className='outerdivs-meta'>
-                        <div className="col-12 text-end">
-                          <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
+                      <div>
+                        <div className='outerdivs-meta' onClick={connectMetaMask}>
+                          <div className="col-12 text-end">
+                            <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
+                          </div>
+                          <div className="col-12 my-auto p-0 text-start">
+                            <p>Connect Metamask</p>
+                          </div>
                         </div>
-                        <div className="col-12 my-auto p-0 text-start">
-                          <p>Connect Metamask</p>
+
+                        <div className='outerdivs-meta' onClick={walletconnect}>
+                          <div className="col-12 text-end">
+                            <img src="/walletconnect.png" alt="metamasklogo" className='img-fluid' />
+                          </div>
+                          <div className="col-12 my-auto p-0 text-start">
+                            <p>Wallet Connect</p>
+                          </div>
                         </div>
                       </div>
                     }
