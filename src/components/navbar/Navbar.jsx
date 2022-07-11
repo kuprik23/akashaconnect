@@ -194,10 +194,10 @@ const Navbar = () => {
               <a href="#home">Home</a>
             </p>
             <p>
-              <a href="#wgpt3">What is Akasha?</a>
+              <a href="#wgpt3">What is Akasha?</a> 
             </p>
             <p>
-              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
+              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <p id="bt" >Join discord</p> </a>
             </p>
             <p>
               <button id="bt" className='bg-transparent border-0' onClick={minto}>Minty</button>
@@ -221,7 +221,7 @@ const Navbar = () => {
             downloadable ?
               <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
               :
-              <button type="button" className={'bg-info'} onClick={toDownloadSDK} >No Download  Available</button>
+              <button type="button" className={'bg-info ml-2'} onClick={toDownloadSDK} >No Download  Available</button>
           }
         </div>
         <div className="gpt3__navbar-menu">
@@ -262,7 +262,7 @@ const Navbar = () => {
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
                 <button type="button" data-toggle="modal" className={account && 'bg-success'} data-target="#exampleModalmerchf">
-                  {account ? "Disconnect Wallet" : "Connect Wallet"}
+                  {account ? "Disconnect Wallet" : "Connect wallet"}
                 </button>
               </div>
             </div>
@@ -271,7 +271,7 @@ const Navbar = () => {
         {/* modal */}
 
         <div class="modal fade" id="exampleModalmerchf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-wallet">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-wallet modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h3 class="modal-title text-white text-center text-uppercase w-100" id="exampleModalLabel">{" Wallet"}</h3>
@@ -300,6 +300,23 @@ const Navbar = () => {
                           </div>
                         </div>
 
+                      </div>
+                    }
+                  </div>
+                </button>
+                <button className='w-100 mt-4 ' type='button' >
+                  <div className="row pb-2 pt-1">
+                    
+                     {account ?
+                      <div className='outerdivs-meta' onClick={walletconnect}>
+                      <div className="col-12 text-end">
+                        <img src="/walletconnect.png" alt="metamasklogo" className='img-fluid' />
+                      </div>
+                      <div className="col-12 my-auto p-0 text-start">
+                        <p>Disconnect Connect</p>
+                      </div>
+                    </div>
+                     :
                         <div className='outerdivs-meta' onClick={walletconnect}>
                           <div className="col-12 text-end">
                             <img src="/walletconnect.png" alt="metamasklogo" className='img-fluid' />
@@ -308,9 +325,8 @@ const Navbar = () => {
                             <p>Wallet Connect</p>
                           </div>
                         </div>
+}
                       </div>
-                    }
-                  </div>
                 </button>
                 {/* <button className='w-100 mt-3' type='button' >
                                 <div className="row pb-2">
