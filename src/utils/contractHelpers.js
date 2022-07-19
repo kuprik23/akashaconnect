@@ -1,6 +1,6 @@
 import web3NoAccount from "./web3";
 import tickting from "./tickting.json";
-
+import minting from "./minting.json";
 
 const getContract = (abi, address, web3) => {
     const _web3 = web3 ?? web3NoAccount;
@@ -22,6 +22,8 @@ const getContract = (abi, address, web3) => {
 export const SkeletonContract = (address, web3) => {
     return getContract(tickting, address, web3);
 };
-
+export const AkashaMintingContract = (address, web3) => {
+    return getContract(minting, address, web3);
+};
 
 

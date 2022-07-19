@@ -3,7 +3,7 @@ import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../logo.png';
 import './navbar.css';
 import { HashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core';
 import useAuth from '../../hooks/useAuth';
 import Minting from "../../hooks/Minting";
@@ -186,12 +186,12 @@ const Navbar = () => {
         <ToastContainer />
 
         <div className="gpt3__navbar-links">
-          <div className="gpt3__navbar-links_logo">
+         <NavLink to='/'> <div className="gpt3__navbar-links_logo">
             <img src={logo} className="logo" />
-          </div>
+          </div></NavLink>
           <div className="gpt3__navbar-links_container">
             <p>
-              <a href="#home">Home</a>
+              <NavLink to='/' href="#home">Home</NavLink>
             </p>
             <p>
               <a href="#wgpt3">What is Akasha?</a> 
@@ -200,7 +200,7 @@ const Navbar = () => {
               <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <p id="bt" >Join discord</p> </a>
             </p>
             <p>
-              <button id="bt" className='bg-transparent border-0' onClick={minto}>Minty</button>
+              <NavLink to='/mint' id="bt" className='bg-transparent border-0' >Minty</NavLink>
             </p>
             <p>
               <a

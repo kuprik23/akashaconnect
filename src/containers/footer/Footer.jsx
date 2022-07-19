@@ -3,27 +3,27 @@ import React from 'react';
 import './footer.css';
 
 const Footer = () => (
-  <div className="gpt3__footer section__padding">
+  <div className="gpt3__footer section__padding footer-main">
     <div className="gpt3__footer-heading">
       <h1 className="gradient__text">STEP INTO THE FUTURE</h1>
     </div>
 
-<p>
-    <div className="gpt3__footer-btn">
-    <a target="_blank" rel="noreferrer" href="https://forms.microsoft.com/r/FsznR0EeqA"> <button id="bt" >AKASHA METAVERSE XPO 2022 OPEN CALL</button> </a>
-    </div>
+    <p>
+      <div className="gpt3__footer-btn">
+        <a target="_blank" rel="noreferrer" href="https://forms.microsoft.com/r/FsznR0EeqA"> <button id="bt" >AKASHA METAVERSE XPO 2022 OPEN CALL</button> </a>
+      </div>
     </p>
 
     <div className="gpt3__footer-links">
       <div className="gpt3__footer-links_logo">
         {/* <img src={gpt3Logo} alt="gpt3_logo" /> */}
         <p><br />Web 3.0 is here.
- To access the Metaverse, connect your Metamask with Akasha NFT.
- Obtain your token in MINTY</p>
+          To access the Metaverse, connect your Metamask with Akasha NFT.
+          Obtain your token in MINTY</p>
       </div>
       <p>
-              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
-            </p>
+        <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
+      </p>
       <div className="gpt3__footer-links_div">
       </div>
       <div className="gpt3__footer-links_div">

@@ -6,7 +6,13 @@
 
     background: var(--color-footer);
 }
-
+.footer-main #bt{
+    background: transparent;
+    border: noe;
+    outline: none;
+    border: none;
+    color: #fff;
+}
 .gpt3__footer-heading {
     width: 100%;
     text-align: center;
