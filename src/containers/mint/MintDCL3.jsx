@@ -144,7 +144,7 @@ const MintDCL3 = ({ mintLimit, preSale, sale }) => {
 
         <div className="gpt3__header-content__people">
 
-          <p className='pMinted'>Mint price per token <span className='mintedOnes'>{acPriceState} eth</span> </p>
+          <p className='pMinted'>Mint price per token <span className='mintedOnes'>{preSale && acPriceState || sale && acPriceState2 || '_'} eth</span> </p>
         </div>
       </div>
 

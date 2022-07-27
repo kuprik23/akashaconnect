@@ -30,7 +30,7 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
         const maxSupply = 2560;
         const aCSupply = acSupplyState;
         const individualTokenAllowed = mintLimit;
-        if (nTokenInpo < individualTokenAllowed + 1) {
+        if (nTokenInpo < individualTokenAllowed) {
           let mintAmount;
           if(preSale){
              mintAmount = nTokenInpo * acPriceState;
@@ -137,15 +137,14 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
         <div className="gpt3__header-content__input d-flex flex-column">
           <div className="row">
             <div className="col-md-7">
-              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} value={nTokenInpo < 0 ? 0 : nTokenInpo} placeholder="Enter no of token" />
+              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} value={(nTokenInpo < 0 ) ? 0 : nTokenInpo} placeholder="Enter no of token" />
               <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintAC</button>
             </div>
           </div>
         </div>
 
         <div className="gpt3__header-content__people">
-
-          <p className='pMinted'>Mint price per token <span className='mintedOnes'>{acPriceState} eth</span> </p>
+          <p className='pMinted'>Mint price per token <span className='mintedOnes'>{preSale && acPriceState || sale && acPriceState2 || '_'} eth</span> </p>
         </div>
       </div>
 
