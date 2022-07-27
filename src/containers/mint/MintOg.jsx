@@ -3,26 +3,29 @@ import { Helmet } from 'react-helmet';
 import people from '../../assets/people.png';
 import ai from '../../assets/ai.png';
 import './mint.css';
-import CheckAcPrice from '../../hooks/dataFetcher/aCPrice '
-import acMint from '../../hooks/dataSender/acMint'
+import CheckAcPrice from '../../hooks/dataFetcher/dcl4Price'
+import Dcl2Mint from '../../hooks/dataSender/ogMint'
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import CheckAcSupply from '../../hooks/dataFetcher/ogSupply'
 // import ReactPlayer from 'react-player'
 
 const MintOg = () => {
   const [acPriceState, setAcPriceState] = useState(0);
-  const [nTokenInpo, setNTokenInpo] = useState(0);
+  const [nTokenInpo, setNTokenInpo] = useState();
   const { account } = useWeb3React();
   const { acPrice } = CheckAcPrice();
-  const { mintingAc } = acMint();
+  const { mintingAc } = Dcl2Mint();
+  const [acSupplyState, setAcSupplyState] = useState(0);
+ const { acSupply } = CheckAcSupply();
   const MintAc = async () => {
     if (nTokenInpo > 0) {
-      const maxSupply = 2560;
-      const aCSupply = 0;
+      const maxSupply = 3238;
+      const aCSupply = acSupplyState;
       const individualTokenAllowed = 51;
       const mintAmount = nTokenInpo * acPriceState;
-      if (aCSupply + nTokenInpo < individualTokenAllowed) {
+      if (aCSupply + nTokenInpo < maxSupply) {
         try {
           const res = await mintingAc(mintAmount, nTokenInpo);
           console.log('res of the mint ', res);
@@ -49,7 +52,19 @@ const MintOg = () => {
     }
 
   }
+  const acSupplyAmount = async () => {
+    try {
+      const acSupplyRes = await acSupply();
+      // const wethAcPrice
+      setAcSupplyState(((acSupplyRes) / 10 ** 18));
+      // toast.success(`Your AC price is ${acPriceRes}`);
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+  }
   useEffect(() => {
+    acSupplyAmount();
     acPriceAmount();
   }, [account]);
   return (
@@ -92,8 +107,8 @@ const MintOg = () => {
         <div className="gpt3__header-content__input d-flex flex-column">
           <div className="row">
             <div className="col-md-7">
-              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} placeholder="Enter no of token" />
-              <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintOG</button>
+              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)}  value={nTokenInpo < 0 ? 0 : nTokenInpo} placeholder="Enter no of token" />
+              <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintOg</button>
             </div>
           </div>
         </div>

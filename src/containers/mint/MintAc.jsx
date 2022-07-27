@@ -4,38 +4,58 @@ import people from '../../assets/people.png';
 import ai from '../../assets/ai.png';
 import './mint.css';
 import CheckAcPrice from '../../hooks/dataFetcher/aCPrice '
+import CheckAcPrice2 from '../../hooks/dataFetcher/aCPrice2'
 import acMint from '../../hooks/dataSender/acMint'
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import CheckAcSupply from '../../hooks/dataFetcher/acSupply'
 // import ReactPlayer from 'react-player'
 
-const MintAc = () => {
+const MintAc = ({ mintLimit, preSale, sale }) => {
   const [acPriceState, setAcPriceState] = useState(0);
-  const [nTokenInpo, setNTokenInpo] = useState(0);
+  const [acPriceState2, setAcPriceState2] = useState(0);
+  const [acSupplyState, setAcSupplyState] = useState(0);
+  const [nTokenInpo, setNTokenInpo] = useState();
   const { account } = useWeb3React();
   const { acPrice } = CheckAcPrice();
+  const { acPrice2 } = CheckAcPrice2();
   const { mintingAc } = acMint();
+  const { acSupply } = CheckAcSupply();
   const MintAc = async () => {
-    if (nTokenInpo > 0) {
-      const maxSupply = 2560;
-      const aCSupply = 0;
-      const individualTokenAllowed = 51;
-      const mintAmount = nTokenInpo * acPriceState;
-      if (aCSupply + nTokenInpo < individualTokenAllowed) {
-        try {
-          const res = await mintingAc(mintAmount, nTokenInpo);
-          console.log('res of the mint ', res);
-          toast.success('Minting Successful');
-        } catch (error) {
-          toast.error(error.message);
-        }
-
-      } else {
-        toast.error('You can not mint more than 51 tokens');
-      }
+    if (preSale == false && sale == false) {
+      toast.error('Minting is not Active!')
     } else {
-      toast.error('Please enter a valid amount');
+      if (nTokenInpo > 0) {
+        const maxSupply = 2560;
+        const aCSupply = acSupplyState;
+        const individualTokenAllowed = mintLimit;
+        if (nTokenInpo < individualTokenAllowed + 1) {
+          let mintAmount;
+          if(preSale){
+             mintAmount = nTokenInpo * acPriceState;
+          }else if(sale){
+             mintAmount = nTokenInpo * acPriceState2;
+          }
+          
+          if (aCSupply + nTokenInpo <= maxSupply) {
+            try {
+              const res = await mintingAc(mintAmount, nTokenInpo);
+              console.log('res of the mint ', res);
+              toast.success('Minting Successful');
+            } catch (error) {
+              toast.error(error.message);
+            }
+
+          } else {
+            toast.error(`You can not mint more than ${maxSupply} tokens`);
+          }
+        } else {
+          toast.error(`You can't mint more then ${individualTokenAllowed} tokens`)
+        }
+      } else {
+        toast.error('Please enter a valid amount');
+      }
     }
   }
   const acPriceAmount = async () => {
@@ -49,8 +69,33 @@ const MintAc = () => {
     }
 
   }
+  const acPriceAmount2 = async () => {
+    try {
+      const acPriceRes = await acPrice2();
+      // const wethAcPrice
+      console.log('tamooe', acPriceRes)
+      setAcPriceState2(((acPriceRes) / 10 ** 18));
+      // toast.success(`Your AC price is ${acPriceRes}`);
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+  }
+  const acSupplyAmount = async () => {
+    try {
+      const acSupplyRes = await acSupply();
+      // const wethAcPrice
+      setAcSupplyState(((acSupplyRes) / 10 ** 18));
+      // toast.success(`Your AC price is ${acPriceRes}`);
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+  }
   useEffect(() => {
+    acSupplyAmount();
     acPriceAmount();
+    acPriceAmount2();
   }, [account]);
   return (
 
@@ -92,7 +137,7 @@ const MintAc = () => {
         <div className="gpt3__header-content__input d-flex flex-column">
           <div className="row">
             <div className="col-md-7">
-              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} placeholder="Enter no of token" />
+              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} value={nTokenInpo < 0 ? 0 : nTokenInpo} placeholder="Enter no of token" />
               <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintAC</button>
             </div>
           </div>

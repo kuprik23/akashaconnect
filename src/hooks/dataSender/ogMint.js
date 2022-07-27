@@ -13,7 +13,7 @@ function acMint() {
         console.log('djfasdflasflasfhuzaida',mintAmount2, nTokenInpo, mintAmount)
         try {
             let nTokens;
-            const res = await contract.methods.mintDCL2(nTokenInpo).send({
+            const res = await contract.methods.mintOG(nTokenInpo).send({
                 from: account,
                 value: mintAmount2
             })
