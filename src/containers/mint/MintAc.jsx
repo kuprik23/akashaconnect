@@ -29,8 +29,8 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
       if (nTokenInpo > 0) {
         const maxSupply = 2560;
         const aCSupply = acSupplyState;
-        const individualTokenAllowed = mintLimit;
-        if (nTokenInpo < individualTokenAllowed) {
+        const individualTokenAllowed = parseInt(mintLimit);
+        if (nTokenInpo < individualTokenAllowed + 1) {
           let mintAmount;
           if(preSale){
              mintAmount = nTokenInpo * acPriceState;

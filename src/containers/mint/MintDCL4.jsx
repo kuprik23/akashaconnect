@@ -29,7 +29,7 @@ const MintDCL4 = ({ mintLimit, preSale, sale }) => {
     if (nTokenInpo > 0) {
       const maxSupply = 3238;
       const aCSupply = acSupplyState;
-      const individualTokenAllowed = mintLimit;
+      const individualTokenAllowed = parseInt(mintLimit);
       if (nTokenInpo < individualTokenAllowed + 1) {
         let mintAmount;
         if(preSale){

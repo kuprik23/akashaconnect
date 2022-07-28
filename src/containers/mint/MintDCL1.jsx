@@ -30,7 +30,7 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
     if (nTokenInpo > 0) {
       const maxSupply = 3237;
       const aCSupply = acSupplyState;
-      const individualTokenAllowed = mintLimit;
+      const individualTokenAllowed = parseInt(mintLimit);
       if (nTokenInpo < individualTokenAllowed + 1) {
         let mintAmount;
           if(preSale){
@@ -48,7 +48,7 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
           }
 
         } else {
-          toast.error('You can not mint more than 51 tokens');
+          toast.error('You can not mint more than 3237 tokens');
         }
       } else {
         toast.error(`You can't mint more then ${individualTokenAllowed} tokens`)
