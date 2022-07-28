@@ -4,11 +4,11 @@
   margin: 0;
   scroll-behavior: smooth;
 }
-
 body {
   /* width: 100vw;
   height: 100vh; */
   background: var(--color-bg);
+  filter: grayscale(1);
 }
 
 a {
