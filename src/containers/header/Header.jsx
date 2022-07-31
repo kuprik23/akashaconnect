@@ -33,7 +33,7 @@ const Header = () => (
             className="video video-popup mfp-iframe"
             data-lity
           >
-            <i className="fa fa-play" />
+            <i className="fa fa-play"/>
           </a>
         </div>
       </div>
