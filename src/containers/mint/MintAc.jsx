@@ -101,7 +101,7 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
 
     <div className="gpt3__header section__padding" id="home">
       <div className="gpt3__header-content">
-        <h1 className="gradient__text">Akashaverse</h1>
+        <h1 className="gradient__text">Mint Ac</h1>
         {/* <div className="wrapper">
         <div className="video-main">
           <div className="promo-video">
