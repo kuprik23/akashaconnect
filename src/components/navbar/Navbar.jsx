@@ -242,13 +242,13 @@ const Navbar = () => {
             <div className="gpt3__navbar-menu_container scale-up-center">
               <div className="gpt3__navbar-menu_container-links">
                 <p>
-                  <a href="#home">Home</a>
+                <NavLink to='/'>Home</NavLink>
                 </p>
                 <p>
                   <a href="#wgpt3">What is Akasha</a>
                 </p>
                 <p>
-                  <button id="bt" onClick={minto}>Minty</button>
+                <NavLink to='/mint'>  <button id="bt">Minty</button> </NavLink>
                 </p>
                 <p>
                   <a href="#features">White Paper</a>
