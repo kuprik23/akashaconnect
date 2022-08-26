@@ -1,0 +1,93 @@
+p {
+  margin-bottom: 0px;
+}
+.swapcard {
+  display: flex;
+  align-items: center;
+  background: var(--gradient-bar);
+  padding: 80px 0;
+}
+.swapcard .swapcard-content h5 {
+  font-family: var(--font-family);
+  font-size: 22px;
+  font-weight: 800;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+.swapcard-content .card {
+  padding: 20px;
+  border-radius: 20px;
+}
+.swapcard-content .input-curr {
+  padding: 10px 20px;
+  display: flex;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(144, 0, 255, 0.489);
+
+  transition: all 0.6s ease;
+}
+
+.input-curr input,
+.input-curr input::placeholder {
+  padding: 10px 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.input-curr .btn-currency {
+  border: none;
+  background: #ff4820;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 12rem;
+}
+
+.input-curr .btn-currency p {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.input-curr .btncard-token {
+  width: 10rem;
+  border: none;
+  background: #ff4820;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: fit-content;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.buy-btn {
+  width: 100%;
+  background-color: rgba(144, 0, 255, 0.489);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  transition: all 0.6s ease;
+  font-family: var(--font-family);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.buy-btn:hover {
+  background: var(--gradient-bar);
+}

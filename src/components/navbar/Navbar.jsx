@@ -1,69 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../logo.png';
-import './navbar.css';
-import { HashLink } from 'react-router-hash-link';
-import { Link, NavLink } from 'react-router-dom';
-import { useWeb3React } from '@web3-react/core';
-import useAuth from '../../hooks/useAuth';
+import React, { useState, useEffect } from "react";
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import logo from "../../logo.png";
+import "./navbar.css";
+import { HashLink } from "react-router-hash-link";
+import { Link, NavLink } from "react-router-dom";
+import { useWeb3React } from "@web3-react/core";
+import useAuth from "../../hooks/useAuth";
 import Minting from "../../hooks/Minting";
 import { ToastContainer, toast } from "react-toastify";
 import Loader from "../../hooks/loader";
 import "react-toastify/dist/ReactToastify.css";
-import useWeb3 from '../../hooks/useWeb3';
-import environment from '../../utils/Environment';
-import { SkeletonContract } from '../../utils/contractHelpers';
+import useWeb3 from "../../hooks/useWeb3";
+import environment from "../../utils/Environment";
+import { SkeletonContract } from "../../utils/contractHelpers";
 
-import Web3 from 'web3'
+import Web3 from "web3";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { login, logout } = useAuth();
   const { account, chainId } = useWeb3React();
-  const [shownav, setShowNav] = useState(false)
-  const [downloadable, setDownloadable] = useState()
+  const [shownav, setShowNav] = useState(false);
+  const [downloadable, setDownloadable] = useState();
   // console.log('ddddddddddddddddddddddd====', account)
   const [open, Close] = useState(true);
   const [mainLoader, setMainLoader] = useState(false);
   const { userMinting } = Minting();
   const web3 = useWeb3();
 
-
   const connectMetamask = () => {
-    localStorage.setItem('connectorId', 'injected');
+    localStorage.setItem("connectorId", "injected");
     if (account) {
       logout();
     } else {
-      login('injected');
+      login("injected");
     }
   };
 
-
-
   const showModal = () => {
-    window.$("#exampleModal").modal('show');
-  }
+    window.$("#exampleModal").modal("show");
+  };
   const disconnect = () => {
-    logout()
-  }
+    logout();
+  };
 
   const Disconnect = async () => {
     logout();
-    localStorage.setItem('connectorId', '');
+    localStorage.setItem("connectorId", "");
   };
   const handleResize = () => {
     // console.log("window.innerWidth", window?.innerWidth)
     if (window.innerWidth < 768) {
-      setShowNav(false)
+      setShowNav(false);
     } else {
-      setShowNav(true)
+      setShowNav(true);
     }
-  }
-
+  };
 
   useEffect(() => {
     handleResize();
-  }, [])
+  }, []);
 
   useEffect(() => {
     // login("injected");
@@ -72,36 +68,35 @@ const Navbar = () => {
     if (chainId != "1") {
       // toast.error("Select Ethereum Network");
     }
-  }, [account, downloadable])
-
+  }, [account, downloadable]);
 
   const walletconnect = () => {
-    localStorage.setItem('connectorId', 'walletconnect');
+    localStorage.setItem("connectorId", "walletconnect");
     if (account) {
       logout();
       window.$("#exampleModalmerchf").modal("hide");
     } else {
-      login('walletconnect');
+      login("walletconnect");
       window.$("#exampleModalmerchf").modal("hide");
     }
   };
   const connectMetaMask = () => {
     try {
       if (account) {
-        logout()
+        logout();
         // window.$("#exampleModalmerchf").modal("hide");
         localStorage.setItem("flag", false);
         checkBalance();
       } else {
-        login("injected")
+        login("injected");
         // window.$("#exampleModalmerchf").modal("hide");
-        localStorage.setItem('connectorId', "injected")
+        localStorage.setItem("connectorId", "injected");
         localStorage.setItem("flag", true);
       }
     } catch (e) {
-      console.log("$$$", e)
+      console.log("$$$", e);
     }
-  }
+  };
   const minto = async () => {
     if (account) {
       setMainLoader(true);
@@ -118,18 +113,20 @@ const Navbar = () => {
         //   toast.success("Minting Successful");
         // }
         // console.log('res=======', res)
-        toast.info("FIND THE PRESALE FORM AND JOIN DISCORD AND TWITTER FOR ANNOUNCEMENTS WHEN MINT");
+        toast.info(
+          "FIND THE PRESALE FORM AND JOIN DISCORD AND TWITTER FOR ANNOUNCEMENTS WHEN MINT"
+        );
         setMainLoader(false);
       } catch (error) {
         setMainLoader(false);
         toast.error(error.message);
 
-        console.log('mintoerror====>', error)
+        console.log("mintoerror====>", error);
       }
     } else {
       toast.warning("Connect Wallet First!");
     }
-  }
+  };
 
   const checkBalance = async () => {
     // console.log("$$$")
@@ -143,41 +140,42 @@ const Navbar = () => {
         // let balance = await contract.methods.balanceOf(
         //   "0x4E4fAb3De995F55ADf2e2c99C2b44070aeebd6BC"
         // ).call();
-        console.log('balance====>', balance)
+        console.log("balance====>", balance);
         if (balance > 0) {
-          setDownloadable(true)
+          setDownloadable(true);
         } else {
-          setDownloadable(false)
+          setDownloadable(false);
         }
       } else {
         console.log("balance check your connection");
         // setDownloadable(false)
       }
     } catch (error) {
-
-      console.log('balance====>', error)
+      console.log("balance====>", error);
     }
-  }
+  };
 
   const downloadSDK = async () => {
     // console.log("$$$")
     try {
       toast.warning("Connecting....");
-      window.location.href = "https://drive.google.com/file/d/17l7di-fx1ERvu6XHM24Z1a6nu6fwZNIO/view"
+      window.location.href =
+        "https://drive.google.com/file/d/17l7di-fx1ERvu6XHM24Z1a6nu6fwZNIO/view";
     } catch (error) {
-      console.log('balance====>', error)
+      console.log("balance====>", error);
     }
-  }
-
+  };
 
   const toDownloadSDK = async () => {
     // console.log("$$$")
     try {
-      toast.warning("Join discord, twitter for announcements. There is a pink list for the presale and the smart contract will be deployed soon.");
+      toast.warning(
+        "Join discord, twitter for announcements. There is a pink list for the presale and the smart contract will be deployed soon."
+      );
     } catch (error) {
-      console.log('balance====>', error)
+      console.log("balance====>", error);
     }
-  }
+  };
 
   return (
     <>
@@ -186,26 +184,41 @@ const Navbar = () => {
         <ToastContainer />
 
         <div className="gpt3__navbar-links">
-         <NavLink to='/'> <div className="gpt3__navbar-links_logo">
-            <img src={logo} className="logo" />
-          </div></NavLink>
+          <NavLink to="/">
+            {" "}
+            <div className="gpt3__navbar-links_logo">
+              <img src={logo} className="logo" />
+            </div>
+          </NavLink>
           <div className="gpt3__navbar-links_container">
             <p>
-              <NavLink to='/' href="#home">Home</NavLink>
+              <NavLink to="/" href="#home">
+                Home
+              </NavLink>
             </p>
             <p>
-              <a href="#wgpt3">What is Akasha?</a> 
+              <a href="#wgpt3">What is Akasha?</a>
             </p>
             <p>
-              <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <p id="bt" >Join discord</p> </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://discord.gg/aeeHKD6AR3"
+              >
+                {" "}
+                <p id="bt">Join discord</p>{" "}
+              </a>
             </p>
             <p>
-              <NavLink to='/mint' id="bt" className='bg-transparent border-0' >Minty</NavLink>
+              <NavLink to="/mint" id="bt" className="bg-transparent border-0">
+                Minty
+              </NavLink>
             </p>
             <p>
               <a
                 href="https://www.keepandshare.com/doc6/38222/akasha-original-white-paper-1-pdf-129k?da=y"
-                target="_blank" rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
               >
                 White Paper
               </a>
@@ -213,16 +226,33 @@ const Navbar = () => {
             <p>
               <a href="#team">Team</a>
             </p>
+            <p>
+              <Link to="/swapcard">Swap</Link>
+            </p>
           </div>
         </div>
         <div className="gpt3__navbar-sign">
-          <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">{account ? "Disconnect Wallet" : "Connect Wallet"}</button>
-          {
-            downloadable ?
-              <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
-              :
-              <button type="button" className={'bg-info ml-2'} onClick={toDownloadSDK} >No Download  Available</button>
-          }
+          <button
+            type="button"
+            className={account && "bg-success"}
+            data-toggle="modal"
+            data-target="#exampleModalmerchf"
+          >
+            {account ? "Disconnect Wallet" : "Connect Wallet"}
+          </button>
+          {downloadable ? (
+            <button type="button" className={"bg-info"} onClick={downloadSDK}>
+              Access
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={"bg-info ml-2"}
+              onClick={toDownloadSDK}
+            >
+              No Download Available
+            </button>
+          )}
         </div>
         <div className="gpt3__navbar-menu">
           {toggleMenu ? (
@@ -242,13 +272,16 @@ const Navbar = () => {
             <div className="gpt3__navbar-menu_container scale-up-center">
               <div className="gpt3__navbar-menu_container-links">
                 <p>
-                <NavLink to='/'>Home</NavLink>
+                  <NavLink to="/">Home</NavLink>
                 </p>
                 <p>
                   <a href="#wgpt3">What is Akasha</a>
                 </p>
                 <p>
-                <NavLink to='/mint'>  <button id="bt">Minty</button> </NavLink>
+                  <NavLink to="/mint">
+                    {" "}
+                    <button id="bt">Minty</button>{" "}
+                  </NavLink>
                 </p>
                 <p>
                   <a href="#features">White Paper</a>
@@ -257,11 +290,23 @@ const Navbar = () => {
                   <a href="#blog">Company</a>
                 </p>
                 <p>
-                  <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://discord.gg/aeeHKD6AR3"
+                  >
+                    {" "}
+                    <button id="bt">Join discord</button>{" "}
+                  </a>
                 </p>
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
-                <button type="button" data-toggle="modal" className={account && 'bg-success'} data-target="#exampleModalmerchf">
+                <button
+                  type="button"
+                  data-toggle="modal"
+                  className={account && "bg-success"}
+                  data-target="#exampleModalmerchf"
+                >
                   {account ? "Disconnect Wallet" : "Connect wallet"}
                 </button>
               </div>
@@ -270,63 +315,98 @@ const Navbar = () => {
         </div>
         {/* modal */}
 
-        <div class="modal fade" id="exampleModalmerchf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          class="modal fade"
+          id="exampleModalmerchf"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div class="modal-dialog modal-dialog-centered modal-dialog-wallet modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h3 class="modal-title text-white text-center text-uppercase w-100" id="exampleModalLabel">{" Wallet"}</h3>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><img src="assets/errorSign.svg" alt="" /></button>
+                <h3
+                  class="modal-title text-white text-center text-uppercase w-100"
+                  id="exampleModalLabel"
+                >
+                  {" Wallet"}
+                </h3>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <img src="assets/errorSign.svg" alt="" />
+                </button>
               </div>
               <div class="modal-body p-5 text-center">
-                <button className='w-100 ' type='button' >
+                <button className="w-100 " type="button">
                   <div className="row pb-2 pt-1">
-                    {account ?
-                      <div className='outerdivs-meta' onClick={connectMetaMask} >
+                    {account ? (
+                      <div className="outerdivs-meta" onClick={connectMetaMask}>
                         <div className="col-12 text-end">
-                          <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
+                          <img
+                            src="/MetaMask_Fox.png"
+                            alt="metamasklogo"
+                            className="img-fluid"
+                          />
                         </div>
                         <div className="col-12 my-auto p-0 text-start">
                           <p>Disconnect Wallet</p>
                         </div>
                       </div>
-                      :
+                    ) : (
                       <div>
-                        <div className='outerdivs-meta' onClick={connectMetaMask}>
+                        <div
+                          className="outerdivs-meta"
+                          onClick={connectMetaMask}
+                        >
                           <div className="col-12 text-end">
-                            <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
+                            <img
+                              src="/MetaMask_Fox.png"
+                              alt="metamasklogo"
+                              className="img-fluid"
+                            />
                           </div>
                           <div className="col-12 my-auto p-0 text-start">
                             <p>Connect Metamask</p>
                           </div>
                         </div>
-
                       </div>
-                    }
+                    )}
                   </div>
                 </button>
-                <button className='w-100 mt-4 ' type='button' >
+                <button className="w-100 mt-4 " type="button">
                   <div className="row pb-2 pt-1">
-                    
-                     {account ?
-                      <div className='outerdivs-meta' onClick={walletconnect}>
-                      <div className="col-12 text-end">
-                        <img src="/walletconnect.png" alt="metamasklogo" className='img-fluid' />
-                      </div>
-                      <div className="col-12 my-auto p-0 text-start">
-                        <p>Disconnect Connect</p>
-                      </div>
-                    </div>
-                     :
-                        <div className='outerdivs-meta' onClick={walletconnect}>
-                          <div className="col-12 text-end">
-                            <img src="/walletconnect.png" alt="metamasklogo" className='img-fluid' />
-                          </div>
-                          <div className="col-12 my-auto p-0 text-start">
-                            <p>Wallet Connect</p>
-                          </div>
+                    {account ? (
+                      <div className="outerdivs-meta" onClick={walletconnect}>
+                        <div className="col-12 text-end">
+                          <img
+                            src="/walletconnect.png"
+                            alt="metamasklogo"
+                            className="img-fluid"
+                          />
                         </div>
-}
+                        <div className="col-12 my-auto p-0 text-start">
+                          <p>Disconnect Connect</p>
+                        </div>
                       </div>
+                    ) : (
+                      <div className="outerdivs-meta" onClick={walletconnect}>
+                        <div className="col-12 text-end">
+                          <img
+                            src="/walletconnect.png"
+                            alt="metamasklogo"
+                            className="img-fluid"
+                          />
+                        </div>
+                        <div className="col-12 my-auto p-0 text-start">
+                          <p>Wallet Connect</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </button>
                 {/* <button className='w-100 mt-3' type='button' >
                                 <div className="row pb-2">
