@@ -10,9 +10,11 @@ import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import CheckAcSupply from '../../hooks/dataFetcher/acSupply'
+import Loader from '../../hooks/loader';
 // import ReactPlayer from 'react-player'
 
 const MintAc = ({ mintLimit, preSale, sale }) => {
+  const [load, setLoad] = useState(false)
   const [acPriceState, setAcPriceState] = useState(0);
   const [acPriceState2, setAcPriceState2] = useState(0);
   const [acSupplyState, setAcSupplyState] = useState(0);
@@ -32,19 +34,22 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
         const individualTokenAllowed = parseInt(mintLimit);
         if (nTokenInpo < individualTokenAllowed + 1) {
           let mintAmount;
-          if(preSale){
-             mintAmount = nTokenInpo * acPriceState;
-          }else if(sale){
-             mintAmount = nTokenInpo * acPriceState2;
+          if (preSale) {
+            mintAmount = nTokenInpo * acPriceState;
+          } else if (sale) {
+            mintAmount = nTokenInpo * acPriceState2;
           }
-          
+
           if (aCSupply + nTokenInpo <= maxSupply) {
             try {
+              setLoad(true)
               const res = await mintingAc(mintAmount, nTokenInpo);
               console.log('res of the mint ', res);
               toast.success('Minting Successful');
+              setLoad(false)
             } catch (error) {
               toast.error(error.message);
+              setLoad(false)
             }
 
           } else {
@@ -98,11 +103,12 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
     acPriceAmount2();
   }, [account]);
   return (
-
-    <div className="gpt3__header section__padding" id="home">
-      <div className="gpt3__header-content">
-        <h1 className="gradient__text">Mint Ac</h1>
-        {/* <div className="wrapper">
+    <>
+      {load && <Loader />}
+      <div className="gpt3__header section__padding" id="home">
+        <div className="gpt3__header-content">
+          <h1 className="gradient__text">Mint Ac</h1>
+          {/* <div className="wrapper">
         <div className="video-main">
           <div className="promo-video">
             <div className="waves-block">
@@ -130,28 +136,28 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
           </a>
         </div>
       </div> */}
-        <p>
-          Connections are evolving and so should we. <br /> Virtual heaven with limitless possibilities.
-        </p>
+          <p>
+            Connections are evolving and so should we. <br /> Virtual heaven with limitless possibilities.
+          </p>
 
-        <div className="gpt3__header-content__input d-flex flex-column">
-          <div className="row">
-            <div className="col-md-7">
-              <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} value={(nTokenInpo < 0 ) ? 0 : nTokenInpo} placeholder="Enter no of token" />
-              <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintAC</button>
+          <div className="gpt3__header-content__input d-flex flex-column">
+            <div className="row">
+              <div className="col-md-7">
+                <input type='number' onChange={(e) => setNTokenInpo(e.target.value)} value={(nTokenInpo < 0) ? 0 : nTokenInpo} placeholder="Enter no of token" />
+                <button className='px-5 mt-4' id="bt" onClick={() => MintAc()}>MintAC</button>
+              </div>
             </div>
+          </div>
+
+          <div className="gpt3__header-content__people">
+            <p className='pMinted'>Mint price per token <span className='mintedOnes'>{preSale && acPriceState || sale && acPriceState2 || '_'} eth</span> </p>
           </div>
         </div>
 
-        <div className="gpt3__header-content__people">
-          <p className='pMinted'>Mint price per token <span className='mintedOnes'>{preSale && acPriceState || sale && acPriceState2 || '_'} eth</span> </p>
+        <div className="gpt3__header-image">
+          <img src={ai} className='skullImage' />
         </div>
-      </div>
-
-      <div className="gpt3__header-image">
-        <img src={ai} className='skullImage' />
-      </div>
-    </div>
+      </div></>
   )
 }
 

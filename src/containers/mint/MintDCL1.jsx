@@ -12,8 +12,10 @@ import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import CheckAcSupply from '../../hooks/dataFetcher/dcl1Supply'
 // import ReactPlayer from 'react-player'
+import Loader from '../../hooks/loader';
 
 const MintDCL1 = ({ mintLimit, preSale, sale }) => {
+  const [load, setLoad] = useState(false)
   const [acPriceState, setAcPriceState] = useState(0);
   const [acPriceState2, setAcPriceState2] = useState(0);
   const [acSupplyState, setAcSupplyState] = useState(0);
@@ -40,11 +42,14 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
           }
         if (aCSupply + nTokenInpo < maxSupply) {
           try {
+            setLoad(true)
             const res = await mintingDCL1(mintAmount, nTokenInpo);
             console.log('res of the mint ', res);
             toast.success('Minting Successful');
+            setLoad(false)
           } catch (error) {
             toast.error(error.message);
+            setLoad(false)
           }
 
         } else {
@@ -98,7 +103,8 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
     acPriceAmount2();
   }, [account]);
   return (
-
+    <>
+    {load && <Loader  />}
     <div className="gpt3__header section__padding" id="home">
       <div className="gpt3__header-content">
         <h1 className="gradient__text">Mint DCL1</h1>
@@ -152,7 +158,7 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
       <div className="gpt3__header-image">
         <img src={ai} className='skullImage' />
       </div>
-    </div>
+    </div> </>
   )
 }
 

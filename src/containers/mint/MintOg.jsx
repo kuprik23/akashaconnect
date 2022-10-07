@@ -10,8 +10,9 @@ import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import CheckAcSupply from '../../hooks/dataFetcher/ogSupply'
 // import ReactPlayer from 'react-player'
-
+import Loader from '../../hooks/loader';
 const MintOg = () => {
+  const [load, setLoad] = useState(false)
   const [acPriceState, setAcPriceState] = useState(0);
   const [nTokenInpo, setNTokenInpo] = useState();
   const { account } = useWeb3React();
@@ -27,11 +28,14 @@ const MintOg = () => {
       const mintAmount = nTokenInpo * acPriceState;
       if (aCSupply + nTokenInpo < maxSupply) {
         try {
+          setLoad(true)
           const res = await mintingAc(mintAmount, nTokenInpo);
           console.log('res of the mint ', res);
           toast.success('Minting Successful');
+          setLoad(false)
         } catch (error) {
           toast.error(error.message);
+          setLoad(false)
         }
 
       } else {
@@ -54,6 +58,7 @@ const MintOg = () => {
   }
   const acSupplyAmount = async () => {
     try {
+
       const acSupplyRes = await acSupply();
       // const wethAcPrice
       setAcSupplyState(((acSupplyRes) / 10 ** 18));
@@ -68,7 +73,8 @@ const MintOg = () => {
     acPriceAmount();
   }, [account]);
   return (
-
+    <>
+    {load && <Loader  />}
     <div className="gpt3__header section__padding" id="home">
       <div className="gpt3__header-content">
         <h1 className="gradient__text">Akashaverse</h1>
@@ -123,6 +129,7 @@ const MintOg = () => {
         <img src={ai} className='skullImage' />
       </div>
     </div>
+    </>
   )
 }
 

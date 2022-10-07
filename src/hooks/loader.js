@@ -6,7 +6,7 @@ function Loader() {
 
   return (
     <>
-      <div className="" style={{marginTop: -90}}>
+      <div className="" style={{marginTop: -120}}>
         <div
           className="position-fixed  w-100"
           style={{
