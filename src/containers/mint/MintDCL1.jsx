@@ -40,9 +40,11 @@ const MintDCL1 = ({ mintLimit, preSale, sale }) => {
           }else if(sale){
              mintAmount = nTokenInpo * acPriceState2;
           }
+          console.log('doremon',aCSupply , nTokenInpo , maxSupply)
         if (aCSupply + nTokenInpo < maxSupply) {
           try {
             setLoad(true)
+            console.log('doremon',mintAmount, nTokenInpo)
             const res = await mintingDCL1(mintAmount, nTokenInpo);
             console.log('res of the mint ', res);
             toast.success('Minting Successful');
