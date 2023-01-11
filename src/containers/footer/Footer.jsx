@@ -28,7 +28,7 @@ const Footer = () => (
       </div>
       <div className="gpt3__footer-links_div">
         <h4>Get in touch</h4>
-        <a target="_blank" rel="noreferrer" href="https://twitter.com/akashaverse"> <button id="bt" >Twitter</button> </a>
+        <a target="_blank" rel="noreferrer" href="https://twitter.com/emersaofficial"> <button id="bt" >Twitter</button> </a>
         <p>dcl@akasha.gl</p>
       </div>
     </div>
