@@ -13,10 +13,10 @@ const Blog = () => (
         <Article imgUrl={blog01} date="Jan 21,2022" text="Emersa Akashaverse project presale coming soon." />
       </div>
       <div className="gpt3__blog-container_groupB">
-        <Article imgUrl={blog02} " text="Fashion at Emersa Akashaverse, a new way to express." />
-        <Article imgUrl={blog03} " text="Elevating education with more hands-on experiment at Akasha." />
-        <Article imgUrl={blog04} " text="Collaboration and work at Emersa Akashaverse." />
-        <Article imgUrl={blog05} " text="The gaming experience is a breeze at EMERSA." />
+        <Article imgUrl={blog02}  text="Fashion at Emersa Akashaverse, a new way to express." />
+        <Article imgUrl={blog03}  text="Elevating education with more hands-on experiment at Akasha." />
+        <Article imgUrl={blog04}  text="Collaboration and work at Emersa Akashaverse." />
+        <Article imgUrl={blog05}  text="The gaming experience is a breeze at EMERSA." />
       </div>
     </div>
   </div>
