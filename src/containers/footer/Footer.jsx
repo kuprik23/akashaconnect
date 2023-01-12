@@ -34,7 +34,7 @@ const Footer = () => (
     </div>
 
     <div className="gpt3__footer-copyright">
-      <p>@2022 Beamport Analytics. All rights reserved.</p>
+      <p>@2023 Beamport Analytics. All rights reserved.</p>
     </div>
   </div>
 );
