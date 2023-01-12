@@ -9,7 +9,7 @@ const featuresData = [
   },
   {
     title: 'Explore.',
-    text: 'Explore your friends worlds and see the life from their perspectives.',
+    text: 'Explore your friends worlds and see the life from their perspective.',
   },
   {
     title: 'Trade.',

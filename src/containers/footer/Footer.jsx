@@ -10,7 +10,7 @@ const Footer = () => (
 
     <p>
       <div className="gpt3__footer-btn">
-        <a target="_blank" rel="noreferrer" href="https://forms.microsoft.com/r/FsznR0EeqA"> <button id="bt" >AKASHA METAVERSE XPO 2022 OPEN CALL</button> </a>
+        <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join Discord</button> </a>
       </div>
     </p>
 

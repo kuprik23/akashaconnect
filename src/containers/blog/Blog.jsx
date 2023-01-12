@@ -16,7 +16,7 @@ const Blog = () => (
         <Article imgUrl={blog02} date="May 26, 2022" text="Fashion at Akasha metaverse, a new way to express." />
         <Article imgUrl={blog03} date="June 21, 2022" text="Elevating education with more hands-on experiment at Akasha." />
         <Article imgUrl={blog04} date="April 12, 2022" text="Collaboration and work at Akasha metaverse." />
-        <Article imgUrl={blog05} date="sep 26, 2022" text="The gaming experience is a breez at Akasha." />
+        <Article imgUrl={blog05} date="sep 26, 2022" text="The gaming experience is a breeze at Akasha." />
       </div>
     </div>
   </div>
