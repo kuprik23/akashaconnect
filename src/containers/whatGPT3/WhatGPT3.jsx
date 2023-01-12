@@ -5,14 +5,14 @@ import './whatGPT3.css';
 const WhatGPT3 = () => (
   <div className="gpt3__whatgpt3 section__margin" id="wgpt3">
     <div className="gpt3__whatgpt3-feature">
-      <Feature title="What is Akasha" text="Akashaverse is pioneering 21st century digital connection. The focus is on communication, adventure and education. Built on Unreal Engine and Blockchain with our governance token $ROLAIS, we're aiming to deliver the best most secure social space for you. Join us now." />
+      <Feature title="What is Emersa" text=" A pioneering 21st century digital connection. The focus is on communication, adventure and education. Built on Unreal Engine and Blockchain with our governance token $ROLAIS, we're aiming to deliver the best most secure social space for you. Join us now." />
     </div>
     <div className="gpt3__whatgpt3-heading">
       <h1 className="gradient__text">Virtual Heaven</h1>
     </div>
     <div className="gpt3__whatgpt3-container">
       <Feature title="Connection" text="Extended reality is the future. Distance will vanish. Connect across the Globe in ways you dream of." />
-      <Feature title="Adventure" text="Every moment is in front of your eyes. Experience Akasha Metaverse." />
+      <Feature title="Adventure" text="Every moment is in front of your eyes. Experience Emersa Akashaverse." />
       <Feature title="Education" text="Web 3.0 integrating virtual reality brings the best and most effective hands on learning experience." />
     </div>
   </div>
