@@ -27,7 +27,7 @@ const MintAc = ({ mintLimit, preSale, sale }) => {
       toast.error('Minting is not Active!')
     } else {
       if (nTokenInpo > 0) {
-        const maxSupply = 2560;
+        const maxSupply = 2000;
         const aCSupply = acSupplyState;
         const individualTokenAllowed = parseInt(mintLimit);
         if (nTokenInpo < individualTokenAllowed + 1) {
