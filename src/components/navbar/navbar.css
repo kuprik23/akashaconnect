@@ -128,7 +128,7 @@ a:hover{
     justify-content: center !important;
 }
 .modal {
-    background: rgba(31, 30, 31, 0.69) !important;
+    background: rgba(220, 13, 220, 0.69) !important;
 }
 
 @media screen and (max-width: 1050px) {
