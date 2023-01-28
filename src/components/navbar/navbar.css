@@ -119,7 +119,7 @@ a:hover{
     display: none;
 }
 .modal-body button {
-    background: #000000;
+    background: #dc15b8;
     border: 2px solid transparent;
     box-sizing: border-box;
     border-radius: 10px;
@@ -128,7 +128,7 @@ a:hover{
     justify-content: center !important;
 }
 .modal {
-    background: rgba(29, 27, 29, 0.69) !important;
+    background: rgba(216, 19, 216, 0.69) !important;
 }
 
 @media screen and (max-width: 1050px) {
