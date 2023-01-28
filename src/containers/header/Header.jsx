@@ -8,7 +8,7 @@ import './header.css';
 const Header = () => (
   <div className="gpt3__header section__padding" id="home">
     <div className="gpt3__header-content">
-      <h1 className="gradient__text">Akashaverse</h1>
+      <h1 className="gradient__text">EMERSA</h1>
       <div className="wrapper">
         <div className="video-main">
           <div className="promo-video">
