@@ -45,7 +45,7 @@ const Header = () => (
         
       </div>
       <div className="gpt3__header-content__people">
-        <p>Support the server & Join Akasha Metaverse Community</p>
+        <p>Support the server & Join Emersa Discord Community</p>
       </div>
     </div>
 

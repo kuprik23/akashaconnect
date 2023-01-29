@@ -18,7 +18,7 @@ const Footer = () => (
       <div className="gpt3__footer-links_logo">
         {/* <img src={gpt3Logo} alt="gpt3_logo" /> */}
         <p><br />Web 3.0 is here.
-          To access the Metaverse, connect your Metamask with Akasha NFT.
+          To access the Metaverse, connect your Metamask with Akasha City Genesis NFT.
           Obtain your token in MINTY</p>
       </div>
       <p>
