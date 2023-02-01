@@ -139,7 +139,7 @@
   background: transparent;
   color: #fff;
   display: inline-block;
-  background: #AE67FA;
+  background: #1818ee;
   z-index: 999;
 }
 
@@ -170,7 +170,7 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  background: #AE67FA;
+  background: #cc19bd;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   border-radius: 100%;

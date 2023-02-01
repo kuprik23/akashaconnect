@@ -12,7 +12,7 @@
   border: 2px solid #5BC4E2;
   box-sizing: border-box;
   border-radius: 2px;
-  background-color: #000;
+  background-color: rgb(36, 34, 34);
   // background-color: yellowgreen;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
   border: 2px solid #a74168;
   box-sizing: border-box;
   border-radius: 17px;
-  background-color: #000;
+  background-color: rgb(36, 35, 35);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,14 +65,14 @@
     }
   }
   .modal-body button {
-    background: #7d3e8c57;
-    border: 2px solid #7d3e8c8f;
+    background: #29272a57;
+    border: 2px solid #211f218f;
     box-sizing: border-box;
     border-radius: 10px;
     color: #fff;
     display: flex;
     justify-content: center !important;
-    box-shadow: 0px -2px 10px #4b1757;
+    box-shadow: 0px -2px 10px #6317b0;
 }
 }
 @media (min-width: 576px) {

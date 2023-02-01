@@ -110,7 +110,7 @@
     margin: 0 0 0 1rem;
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 38px;
     color: #fff;
     text-align: center;
@@ -151,7 +151,7 @@
   background: transparent;
   color: #fff;
   display: inline-block;
-  background: #AE67FA;
+  background: #1d1c1e;
   z-index: 999;
 }
 
@@ -182,7 +182,7 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  background: #AE67FA;
+  background: #4ed1f5;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   border-radius: 100%;
