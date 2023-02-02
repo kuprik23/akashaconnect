@@ -28,6 +28,40 @@ const Navbar = () => {
   const { userMinting } = Minting();
   const web3 = useWeb3();
 
+  const [etaccounts, setetaccounts] = useState(0);
+
+  async function onInit() {
+    if (window.ethereum) {
+      try {
+        const accnts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        setetaccounts(accnts.length);
+        
+        window.ethereum.on('accountsChanged', function (accountss) {
+          setetaccounts(accnts.length);
+              console.log("accountsanged",accountss[0])
+             });
+      } catch (error) {
+        console.log("accountsanged",error.message);
+        if (error.code === 4001) {
+          // User rejected request
+        }
+    
+        // setError(error);
+      }
+    }
+}
+
+
+const disconnectEth = async () => {
+  disconnect
+  window.ethereum.on('disconnect', function (accountss) {
+    setetaccounts(accnts.length);
+        console.log("accountsanged",accountss[0])
+       });
+
+}
+
+onInit();
 
   const connectMetamask = () => {
     localStorage.setItem('connectorId', 'injected');
@@ -37,7 +71,6 @@ const Navbar = () => {
       login('injected');
     }
   };
-
 
 
   const showModal = () => {
@@ -85,23 +118,36 @@ const Navbar = () => {
       window.$("#exampleModalmerchf").modal("hide");
     }
   };
+
   const connectMetaMask = () => {
     try {
-      if (account) {
+      if (etaccounts>0) {
+        console.log("$$$", etaccounts)
         logout()
         // window.$("#exampleModalmerchf").modal("hide");
         localStorage.setItem("flag", false);
         checkBalance();
       } else {
-        login("injected")
+        if(window.ethereum){
+          
+          
+          console.log("eth", window.ethereum)
+          // console.log("$$$",window.ethereum) 
+        }else{
+          alert("install metamask extension!!")
+        }
+       
         // window.$("#exampleModalmerchf").modal("hide");
-        localStorage.setItem('connectorId', "injected")
+        localStorage.setItem('connectorId', "injected");
         localStorage.setItem("flag", true);
+        login("injected");
+
       }
     } catch (e) {
       console.log("$$$", e)
     }
   }
+
   const minto = async () => {
     if (account) {
       setMainLoader(true);
@@ -216,7 +262,15 @@ const Navbar = () => {
           </div>
         </div>
         <div className="gpt3__navbar-sign">
-          <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">{account ? "Disconnect Wallet" : "Connect Wallet"}</button>
+      {etaccounts>0 ?(
+        <button type="button" className='bg-success' onClick={disconnectEth}>Disconnect Wallet</button>
+      ):(
+        <button type="button" data-toggle="modal" data-target="#exampleModalmerchf">Connect Wallet</button>
+
+      )
+      }
+          {/* <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">
+            {account ? ("Disconnect Wallet") : ("Connect Wallet")}</button> */}
           {
             downloadable ?
               <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
