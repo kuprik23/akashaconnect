@@ -194,7 +194,7 @@ const Navbar = () => {
               <NavLink to='/' href="#home">Home</NavLink>
             </p>
             <p>
-              <a href="#wgpt3">What is Akasha?</a> 
+              <a href="#wgpt3">Why Emersa?</a> 
             </p>
             <p>
               <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <p id="bt" >Join discord</p> </a>
