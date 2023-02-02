@@ -10,7 +10,7 @@ const Possibility = () => (
     <div className="gpt3__possibility-content">
       <h4>Early Access Soon</h4>
       <h1 className="gradient__text">The possibilities are <br /> beyond your imagination</h1>
-      <p>Emersa offers technologies helping people connect, find communities, and grow businesses. Share immersive experiences with other people even when you can’t be together — and do things together you couldn’t do in the physical world. It’s the next evolution in a long line of social technologies. Be part of change.</p>
+      <p>Emersa offers technologies helping people connect, find communities, and grow businesses. Share immersive experiences with other people and do things together you couldn’t do in the physical world. It’s the next evolution in a long line of social technologies. Be part of change.</p>
       <h4>Education & Sustainability is key.</h4>
     </div>
   </div>
