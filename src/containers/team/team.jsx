@@ -56,8 +56,7 @@ const Team = () => (
               <h2>Who Are We?</h2>
               <p>
                 <div>
-                We, the Akasha Metaverse Team, marry deep VR industry experience with passion for virtual social and its users.
- We aim to combine the best of the virtual world with professional-quality content.
+                Emersa A-team is a bunch of geeks, nerds and artists coming together to share knowledge.
  Our goal is to build highly-engaging experiences in the metaverse.
                 </div>
               </p>
