@@ -263,14 +263,14 @@ onInit();
         </div>
         <div className="gpt3__navbar-sign">
       {etaccounts>0 ?(
-        <button type="button" className='bg-success' onClick={disconnectEth}>Disconnect Wallet</button>
+        <button type="button" className='bg-success' onClick={disconnectEth}>Connected</button>
       ):(
         <button type="button" data-toggle="modal" data-target="#exampleModalmerchf">Connect Wallet</button>
 
       )
       }
           {/* <button type="button" className={account && 'bg-success'} data-toggle="modal" data-target="#exampleModalmerchf">
-            {account ? ("Disconnect Wallet") : ("Connect Wallet")}</button> */}
+            {account ? ("Connected") : ("Connect Wallet")}</button> */}
           {
             downloadable ?
               <button type="button" className={'bg-info'} onClick={downloadSDK}>Access</button>
@@ -299,7 +299,7 @@ onInit();
                 <NavLink to='/'>Home</NavLink>
                 </p>
                 <p>
-                  <a href="#wgpt3">What is Akasha</a>
+                  <a href="#wgpt3">Why Emersa?</a>
                 </p>
                 <p>
                 <NavLink to='/mint'>  <button id="bt">Minty</button> </NavLink>
@@ -316,7 +316,7 @@ onInit();
               </div>
               <div className="gpt3__navbar-menu_container-links-sign">
                 <button type="button" data-toggle="modal" className={account && 'bg-success'} data-target="#exampleModalmerchf">
-                  {account ? "Disconnect Wallet" : "Connect wallet"}
+                  {account ? "Connected" : "Connect wallet"}
                 </button>
               </div>
             </div>
@@ -340,7 +340,7 @@ onInit();
                           <img src="/MetaMask_Fox.png" alt="metamasklogo" className='img-fluid' />
                         </div>
                         <div className="col-12 my-auto p-0 text-start">
-                          <p>Disconnect Wallet</p>
+                          <p>Connected</p>
                         </div>
                       </div>
                       :
