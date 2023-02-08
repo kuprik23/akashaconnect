@@ -167,27 +167,19 @@
 }
 
 .waves {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: #cc19bd;
-    opacity: 0;
-    border-radius: 100%;
-    right: -50px;
-    bottom: -50px;
-    animation: waves 3s ease-in-out infinite;
-  }
-  
-  @keyframes waves {
-    0% {
-      transform: scale(0);
-      opacity: 0.5;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #cc19bd;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  border-radius: 100%;
+  right: -50px;
+  bottom: -50px;
+  z-index: -1;
+   -webkit-animation: waves 3s ease-in-out infinite;
+  animation: waves 3s ease-in-out infinite;
+}
         
 .wave-1 {
   -webkit-animation-delay: 0s;
