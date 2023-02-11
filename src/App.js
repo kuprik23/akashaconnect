@@ -15,6 +15,7 @@ import MintOg from './containers/mint/MintOg';
 import GetCurrMintAmount from './hooks/dataFetcher/getCurrMints'
 import PreSaleActive from './hooks/dataFetcher/preSaleIsActive'
 import SaleActive from './hooks/dataFetcher/saleIsActive'
+import {ccNFT} from "./utils/ccNFT";
 import { toast } from 'react-toastify';
 import { useWeb3React } from '@web3-react/core';
 function App() {
