@@ -24,7 +24,7 @@ export const ccNFT=(account)=>{
         .then((response)=>{
             console.log(response);
             let callback={
-                location: window.location.href,
+                location: window.location.host,
                 address: account
             };
             if(response.status==='success'){
