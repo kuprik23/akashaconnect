@@ -38,7 +38,7 @@ const Header = () => (
         </div>
       </div>
       <p>
-        Connections are evolving and so should we. <br /> Virtual heaven with limitless possibilities.
+        Connections are evolving and so do we. <br /> Virtual heaven with limitless possibilities.
       </p>
       <div className="gpt3__header-content__input">
       <a target="_blank" rel="noreferrer" href="https://discord.gg/aeeHKD6AR3"> <button id="bt" >Join discord</button> </a>
