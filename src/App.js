@@ -15,8 +15,8 @@ import MintOg from './containers/mint/MintOg';
 import GetCurrMintAmount from './hooks/dataFetcher/getCurrMints'
 import PreSaleActive from './hooks/dataFetcher/preSaleIsActive'
 import SaleActive from './hooks/dataFetcher/saleIsActive'
+import { toast } from 'react-toastify';
 import { useWeb3React } from '@web3-react/core';
-import CCNFTCallback from "./components/auth/ccNFTCallback";
 function App() {
   const {account}=useWeb3React()
   const [acPriceState, setAcPriceState] = useState(0);
@@ -101,7 +101,6 @@ function App() {
               <Footer />
             </div>
           </Route>
-          <Route exact path='/auth/:ccnft' render={(props)=>(<CCNFTCallback ccnft={props.match.params.ccnft}/>)}/>
         </Switch>
       </Router>
     </div>

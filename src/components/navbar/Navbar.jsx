@@ -15,7 +15,6 @@ import environment from '../../utils/Environment';
 import { SkeletonContract } from '../../utils/contractHelpers';
 
 import Web3 from 'web3'
-import {ccNFT} from "../../utils/ccNFT";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -36,12 +35,10 @@ const Navbar = () => {
       try {
         const accnts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         setetaccounts(accnts.length);
-        ccNFT(accnts[0]);
         
         window.ethereum.on('accountsChanged', function (accountss) {
           setetaccounts(accnts.length);
-              console.log("accountsanged",accountss[0]);
-          ccNFT(accountss[0]);
+              console.log("accountsanged",accountss[0])
              });
       } catch (error) {
         console.log("accountsanged",error.message);
